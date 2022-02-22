@@ -32,7 +32,7 @@ uint32_t timer0_init(void)
     CMU_ClockEnable(cmuClock_TIMER0, true);
 
     // Init compare mode initialization and configure
-    TIMER_InitCC_TypeDef ccInit = TIMER_INITCC_DEFAULT;
+    const TIMER_InitCC_TypeDef ccInit = TIMER_INITCC_DEFAULT;
     ccInit.mode = timerCCModeCompare;
     ccInit.cofoa = timerOutputActionToggle;
 
@@ -45,7 +45,7 @@ uint32_t timer0_init(void)
     TIMER0->ROUTELOC0 = TIMER_ROUTELOC0_CC0LOC_LOC0;
 
     // Timer general initialization and config.
-    TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+    const TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
     timerInit.prescale = timerPrescale1024;
     timerInit.enable = true;
 
