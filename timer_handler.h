@@ -11,6 +11,7 @@
 #define TIMER_HANDLER_H_
 
 // Public functions
-void timer0_init();
+uint32_t timer0_init();
+void buzzer_gpio_init();
 
 #endif // TIMER_HANDLER_H_ */

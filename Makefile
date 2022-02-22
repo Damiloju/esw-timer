@@ -52,7 +52,7 @@ PROGRAM_DEST_ADDR       ?= $(APP_START)
 # distributed with this project and must be installed with Simplicity Studio.
 # The variable needs to point at the subdirectory with the version number, set
 # it in Makefile.private or through the environment.
-SILABS_SDKDIR           ?= $(HOME)/SimplicityStudio_v5/developer/sdks/gecko_sdk_suite/v3.2
+SILABS_SDKDIR           ?= /opt/gecko_sdk/
 
 # Pull in the developer's private configuration overrides and settings
 -include Makefile.private
