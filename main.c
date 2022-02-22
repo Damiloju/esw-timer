@@ -45,6 +45,8 @@
 #include "incbin.h"
 INCBIN(Header, "header.bin");
 
+uint32_t timer_freq;
+
 void buzzer_loop(void *args);
 
 // Heartbeat thread, initialize Timer and print heartbeat messages.
