@@ -13,5 +13,6 @@
 // Public functions
 uint32_t timer0_init();
 void buzzer_gpio_init();
+void duty_cycle_set(uint32_t duty_cycle);
 
 #endif // TIMER_HANDLER_H_ */

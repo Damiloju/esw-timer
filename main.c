@@ -47,7 +47,7 @@ INCBIN(Header, "header.bin");
 
 uint32_t timer_freq;
 
-void buzzer_loop(void *args);
+void motor_loop(void *args);
 
 // Heartbeat thread, initialize Timer and print heartbeat messages.
 void hp_loop()
@@ -62,8 +62,8 @@ void hp_loop()
     info1("Timer initialized with %lu Hz", timer_freq);
 
     // Create a thread for buzzer
-    const osThreadAttr_t BUZZER_thread_attr = {.name = "BUZZER_thread_attr"};
-    osThreadNew(buzzer_loop, NULL, &BUZZER_thread_attr);
+    const osThreadAttr_t MOTOR_thread_attr = {.name = "MOTOR_thread_attr"};
+    osThreadNew(motor_loop, NULL, &MOTOR_thread_attr);
 
     for (;;)
     {
@@ -72,14 +72,18 @@ void hp_loop()
     }
 }
 
-void buzzer_loop(void *args)
+void motor_loop(void *args)
 {
     for (;;)
     {
         osDelay(1000 * osKernelGetTickFreq());
-        TIMER_TopBufSet(TIMER0, 50);
+        duty_cycle_set(50);
         osDelay(1000 * osKernelGetTickFreq());
-        TIMER_TopBufSet(TIMER0, 100);
+        duty_cycle_set(25);
+        osDelay(1000 * osKernelGetTickFreq());
+        duty_cycle_set(0);
+        osDelay(1000 * osKernelGetTickFreq());
+        duty_cycle_set(75);
     }
 }
 
