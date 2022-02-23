@@ -24,6 +24,7 @@
 
 
  * Frequencies (37500 clock)
+ * https://pages.mtu.edu/~suits/notefreqs.html
  * C4 261,63 Hz -> 142 top
  * D4 293,66 Hz -> 127 top
  * E4 329,63 Hz -> 113 top
