@@ -74,16 +74,22 @@ void hp_loop()
 
 void motor_loop(void *args)
 {
+#define DUTY_CYCLE_DELAY 2000 // ms
+
     for (;;)
     {
-        osDelay(1000 * osKernelGetTickFreq());
+        osDelay(DUTY_CYCLE_DELAY * osKernelGetTickFreq() / 1000);
         duty_cycle_set(50);
-        osDelay(1000 * osKernelGetTickFreq());
+        info1("dc 50");
+        osDelay(DUTY_CYCLE_DELAY * osKernelGetTickFreq() / 1000);
         duty_cycle_set(25);
-        osDelay(1000 * osKernelGetTickFreq());
+        info1("dc 25");
+        osDelay(DUTY_CYCLE_DELAY * osKernelGetTickFreq() / 1000);
         duty_cycle_set(0);
-        osDelay(1000 * osKernelGetTickFreq());
+        info1("dc 25");
+        osDelay(DUTY_CYCLE_DELAY * osKernelGetTickFreq() / 1000);
         duty_cycle_set(75);
+        info1("dc 75");
     }
 }
 
